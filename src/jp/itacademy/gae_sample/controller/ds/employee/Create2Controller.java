@@ -13,7 +13,7 @@ public class Create2Controller extends Controller {
         
         Employee employee=new Employee();
         employee.setKey(Datastore.createKey(Employee.class, 9999));
-        employee.setName("ŽÐ’{Žl˜Y")
+        employee.setName("ŽÐ’{Žl˜Y");
         
         return forward("create2.jsp");
     }

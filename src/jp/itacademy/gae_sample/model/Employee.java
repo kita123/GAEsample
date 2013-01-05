@@ -6,8 +6,10 @@ import java.util.List;
 
 import com.google.appengine.api.datastore.Key;
 import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
+import com.sun.tracing.dtrace.Attributes;
 
 import org.slim3.datastore.Attribute;
+import org.slim3.datastore.Datastore;
 import org.slim3.datastore.Model;
 
 @Model(schemaVersion = 1)
@@ -34,7 +36,18 @@ public class Employee implements Serializable {
     private int salary;
     private List<Long> credentialIds;
     
+    @Attribute(persistent=false)
+    private Dept dept;
     
+    
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
 
     public String getName() {
         return name;
@@ -164,4 +177,14 @@ public class Employee implements Serializable {
         }
         return true;
     }
-}
+    
+    public Key getDeptKey(){
+        return Datastore.createKey(Dept.class,getDeptId());
+    }
+    
+    public void setDeptKey(Key deptKey){
+        this.deptId=deptKey.getId();
+    }
+    
+  }
+

@@ -1,4 +1,11 @@
-<!-- Indices written at Sat, 19 Jan 2013 19:42:20 JST -->
+<!-- Indices written at Sat, 26 Jan 2013 18:39:47 JST -->
 
-<datastore-indexes/>
+<datastore-indexes>
 
+    <!-- Used 4 times in query history -->
+    <datastore-index kind="SaleItem" ancestor="false" source="auto">
+        <property name="itemKey" direction="asc"/>
+        <property name="lastUpdateTimestamp" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

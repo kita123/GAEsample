@@ -49,7 +49,9 @@ public class UpdateController extends Controller {
         tx.commit();
         
         }finally{
-            if
+            if(tx.isActive()){
+                tx.rollback();
+            }
         }
         
         return redirect("/taskqueue/item/list");
